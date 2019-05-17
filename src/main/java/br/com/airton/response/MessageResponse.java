@@ -8,6 +8,7 @@ public class MessageResponse implements  IResponse{
 	public static final MessageResponse ERR_INVALID_EMAIL_OR_PASSWORD = new MessageResponse("Invalid e-mail or password", "004");
 	public static final MessageResponse ERR_UNAUTHORIZED = new MessageResponse("Unauthorized", "005");
 	public static final MessageResponse ERR_INVALID_SESSION = new MessageResponse("Unauthorized - invalid session", "006");
+	public static final MessageResponse ERR_FATAL = new MessageResponse("Fatal Error", "007");
 
 	private String message;
 	private String errorCode;

@@ -1,6 +1,6 @@
 package br.com.airton.security;
 
-import br.com.airton.model.UserSS;
+import br.com.airton.Util.UserSS;
 import br.com.airton.model.Usuario;
 import br.com.airton.repository.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,7 +17,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 
     @Override
     public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
-        Usuario usuario = (Usuario) usuariopRepository.findAllByEmail(email);
+        Usuario usuario = (Usuario) usuariopRepository.findByEmail(email);
 
         if(usuario==null){
             throw new UsernameNotFoundException("Usuário não Encontrado!");

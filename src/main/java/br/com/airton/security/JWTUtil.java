@@ -2,10 +2,12 @@ package br.com.airton.security;
 
 import java.util.Date;
 
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
-import br.com.airton.Util.DesafioUtil;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+
+import br.com.airton.response.MessageResponse;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
@@ -13,6 +15,16 @@ import io.jsonwebtoken.SignatureAlgorithm;
 @Component
 public class JWTUtil {
 	
+	public final String[] PUBLIC_MATCHERS = {};
+	public final String[] PUBLIC_MATCHERS_GET = {};
+	public final String[] PUBLIC_MATCHERS_POST = {
+			"/signin",
+			"/signup"
+	};
+	public final String[] PRIVATE_MATCHERS = {
+			"/me"
+	};
+		
 	private String secret = "P1T4NG";
 
 	private Long expiration = 300000L;
@@ -54,5 +66,17 @@ public class JWTUtil {
 			return null;
 		}
 	}
+	
+	public String json(MessageResponse response) {
+	   	 ObjectMapper Obj = new ObjectMapper(); 
+	   	 try {
+				String jsonStr = Obj.writeValueAsString(response);
+				return jsonStr;
+	   	 } catch (JsonProcessingException e) {
+	   		 return "{\"message\": ERRO, "
+	   	                + "\"errorCode\": -- "
+	   	                + "}";
+			}             
+	   }
 
 }

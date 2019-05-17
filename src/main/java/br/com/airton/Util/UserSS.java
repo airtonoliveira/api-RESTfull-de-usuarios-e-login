@@ -1,4 +1,4 @@
-package br.com.airton.model;
+package br.com.airton.Util;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import org.springframework.security.core.GrantedAuthority;

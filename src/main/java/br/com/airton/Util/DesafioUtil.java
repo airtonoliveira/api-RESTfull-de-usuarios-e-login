@@ -1,6 +1,5 @@
 package br.com.airton.Util;
 
-import br.com.airton.model.UserSS;
 import br.com.airton.model.Usuario;
 
 import java.text.SimpleDateFormat;
