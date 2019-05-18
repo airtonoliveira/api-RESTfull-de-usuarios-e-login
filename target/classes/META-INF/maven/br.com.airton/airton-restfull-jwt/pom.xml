@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>br.com.airton</groupId>
-    <artifactId>airton-restfull</artifactId>
+    <artifactId>airton-restfull-jwt</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>jar</packaging>
 
