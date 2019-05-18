@@ -1,12 +1,10 @@
 package br.com.airton.response;
 
-import br.com.airton.model.Usuario;
-
 public class UsuarioETokenResponse implements IResponse{
 
+	private String token;
     private UsuarioLogadoResponse user;
-    private String token;
-
+   
     public UsuarioETokenResponse(){
 
     }

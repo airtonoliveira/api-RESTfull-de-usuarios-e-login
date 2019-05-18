@@ -7,8 +7,7 @@ import org.springframework.stereotype.Component;
 
 import br.com.airton.model.Usuario;
 import br.com.airton.repository.UsuarioRepository;
-import br.com.airton.response.UsuarioETokenResponse;
-import br.com.airton.response.UsuarioLogadoResponse;
+import br.com.airton.response.TokenResponse;
 
 @Component
 public class UsuarioService {
@@ -16,8 +15,8 @@ public class UsuarioService {
 	@Autowired
 	private UsuarioRepository usuarioRepository;
 
-	public UsuarioETokenResponse getUsuarioResponseForSucessfullSignin(Usuario usuario, String token) {		    
-	    return new UsuarioETokenResponse(new UsuarioLogadoResponse(usuario),token);
+	public TokenResponse getUsuarioResponseForSucessfullSignin(String token) {		    
+	    return new TokenResponse(token);
 	}
 
 	public Usuario updateUserLastLogin(String email) {

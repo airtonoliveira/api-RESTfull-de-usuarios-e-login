@@ -1,10 +1,9 @@
 package br.com.airton.response;
 
+import java.util.Set;
+
 import br.com.airton.model.Phone;
 import br.com.airton.model.Usuario;
-
-import java.util.Date;
-import java.util.Set;
 
 public class UsuarioLogadoResponse implements IResponse{
 

@@ -8,7 +8,6 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.BadCredentialsException;
@@ -18,7 +17,6 @@ import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.web.authentication.AuthenticationFailureHandler;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.exc.UnrecognizedPropertyException;
 
@@ -31,8 +29,7 @@ import br.com.airton.service.UsuarioService;
 
 public class JWTAuthenticationFilter extends UsernamePasswordAuthenticationFilter   {
 
-private AuthenticationManager authenticationManager;
-    
+	private AuthenticationManager authenticationManager;   
     private JWTUtil jwtUtil;
     private UsuarioService usuarioService;
 
@@ -115,9 +112,9 @@ private AuthenticationManager authenticationManager;
         res.addHeader("access-control-expose-headers", "Authorization");
         res.setContentType("application/json"); 
         try {
-        	Usuario usuario = usuarioService.updateUserLastLogin(username);
+        	usuarioService.updateUserLastLogin(username);
         	ObjectMapper Obj = new ObjectMapper(); 
-			res.getWriter().append((Obj.writeValueAsString(usuarioService.getUsuarioResponseForSucessfullSignin(usuario, token))));
+			res.getWriter().append((Obj.writeValueAsString(usuarioService.getUsuarioResponseForSucessfullSignin(token))));
 		} catch (IOException e1) {
 			throw new RuntimeException(e1.getMessage());
 		}

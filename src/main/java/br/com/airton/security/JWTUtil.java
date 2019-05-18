@@ -24,6 +24,8 @@ public class JWTUtil {
 	public final String[] PRIVATE_MATCHERS = {
 			"/me"
 	};
+	
+	public static final String AUTHORIZATION = "Authorization";
 		
 	private String secret = "P1T4NG";
 

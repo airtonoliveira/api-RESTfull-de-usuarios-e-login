@@ -1,11 +1,8 @@
 package br.com.airton.request;
 
-import br.com.airton.model.Phone;
-
-import javax.persistence.*;
-import javax.validation.constraints.NotNull;
-import java.util.Date;
 import java.util.Set;
+
+import br.com.airton.model.Phone;
 
 public class UsuarioRequest {
 
