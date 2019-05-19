@@ -1,10 +1,11 @@
 package br.com.airton.response;
 
+import java.time.format.DateTimeFormatter;
+import java.util.Set;
+
 import br.com.airton.Util.DesafioUtil;
 import br.com.airton.model.Phone;
 import br.com.airton.model.Usuario;
-
-import java.util.Set;
 
 public class UsuarioLoginInfoResponse implements IResponse{
 
@@ -13,8 +14,8 @@ public class UsuarioLoginInfoResponse implements IResponse{
         this.lastName = usuario.getLastName();
         this.email = usuario.getEmail();
         this.phones = usuario.getPhones();
-        this.setCreated_at(DesafioUtil.formatar(usuario.getCreated_at()));
-        this.setLast_login(DesafioUtil.formatar(usuario.getLast_login()));
+        this.setCreated_at(usuario.getCreated_at().format(DateTimeFormatter.ofPattern(DesafioUtil.FORMATO_DD_MM_YYYY)));
+        this.setLast_login(usuario.getLast_login().format(DateTimeFormatter.ofPattern(DesafioUtil.FORMATO_DD_MM_YYYY)));
     }
 
 
@@ -77,4 +78,5 @@ public class UsuarioLoginInfoResponse implements IResponse{
     public void setLast_login(String last_login) {
         this.last_login = last_login;
     }
+    
 }

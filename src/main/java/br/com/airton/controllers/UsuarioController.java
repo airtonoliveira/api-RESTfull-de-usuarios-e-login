@@ -1,7 +1,5 @@
 package br.com.airton.controllers;
 
-import java.util.Date;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 
@@ -52,7 +50,7 @@ public class UsuarioController {
         }
 
         usuario.setPassword(new BCryptPasswordEncoder().encode(usuario.getPassword()));
-        usuario.setCreated_at(new Date());
+        usuario.setCreated_at(DesafioUtil.getActualDateTimeBrazilTimeZone());
         usuarioRepository.save(usuario);
         String token = jwtUtil.generateToken(usuario.getEmail());
         TokenResponse userResponse = new TokenResponse(token);

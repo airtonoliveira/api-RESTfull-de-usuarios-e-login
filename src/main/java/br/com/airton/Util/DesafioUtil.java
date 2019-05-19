@@ -1,13 +1,17 @@
 package br.com.airton.Util;
 
-import br.com.airton.model.Usuario;
-
 import java.text.SimpleDateFormat;
+import java.time.Instant;
+import java.time.LocalDateTime;
+import java.time.ZoneId;
+import java.time.ZonedDateTime;
 import java.util.Date;
+
+import br.com.airton.model.Usuario;
 
 public class DesafioUtil {
 
-    static final String FORMATO_DD_MM_YYYY = "dd/MM/yyyy HH:mm";
+    public static final String FORMATO_DD_MM_YYYY = "dd/MM/yyyy HH:mm";
 
     public  static boolean isCamposObrigatoriosUsuarioPreenchidos(Usuario usuario){
         System.out.println(usuario.toString());
@@ -41,7 +45,7 @@ public class DesafioUtil {
         return false;
     }
 
-    public static String formatar(Date data) {
+    public static String formatar(LocalDateTime data) {
 
         String dataFormatada = null;
 
@@ -66,5 +70,12 @@ public class DesafioUtil {
         long curTimeInMs = beforeTime.getTime();
         Date afterAddingMins = new Date(curTimeInMs + (minutes * ONE_MINUTE_IN_MILLIS));
         return afterAddingMins;
+    }
+    
+    public static LocalDateTime getActualDateTimeBrazilTimeZone(){
+	    Instant nowUtc = Instant.now();
+		ZoneId americaRecife = ZoneId.of("America/Recife");
+		ZonedDateTime now = ZonedDateTime.ofInstant(nowUtc, americaRecife);
+		return now.toLocalDateTime();
     }
 }

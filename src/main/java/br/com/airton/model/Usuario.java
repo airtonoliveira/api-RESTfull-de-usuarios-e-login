@@ -1,19 +1,29 @@
 package br.com.airton.model;
 
-import br.com.airton.request.UsuarioRequest;
-
-import java.util.Date;
+import java.time.LocalDateTime;
 import java.util.Set;
 
-import javax.persistence.*;
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
+
+import br.com.airton.request.UsuarioRequest;
 
 @Entity
 @Table(name = "user")
 public class Usuario{
 		
 	public Usuario(String firstName, String lastName, String email,
-			String password, Set<Phone> phones, Date created_at) {
+			String password, Set<Phone> phones, LocalDateTime created_at) {
 		super();
 		this.firstName = firstName;
 		this.lastName = lastName;
@@ -60,10 +70,10 @@ public class Usuario{
 
 	@NotNull
 	@Column
-	private Date created_at;
+	private LocalDateTime created_at;
 
 	@Column
-	private Date last_login;
+	private LocalDateTime last_login;
 
 	@NotNull
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
@@ -133,19 +143,19 @@ public class Usuario{
 				+ getPassword() + ", phones=" + phones + "]";
 	}
 
-	public Date getCreated_at() {
+	public LocalDateTime getCreated_at() {
 		return created_at;
 	}
 
-	public void setCreated_at(Date created_at) {
+	public void setCreated_at(LocalDateTime created_at) {
 		this.created_at = created_at;
 	}
 
-	public Date getLast_login() {
+	public LocalDateTime getLast_login() {
 		return last_login;
 	}
 
-	public void setLast_login(Date last_login) {
+	public void setLast_login(LocalDateTime last_login) {
 		this.last_login = last_login;
 	}
 }

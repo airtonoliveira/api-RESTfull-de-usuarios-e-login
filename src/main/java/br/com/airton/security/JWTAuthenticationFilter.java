@@ -23,7 +23,6 @@ import com.fasterxml.jackson.databind.exc.UnrecognizedPropertyException;
 import br.com.airton.Util.DesafioUtil;
 import br.com.airton.Util.UserSS;
 import br.com.airton.exceptions.InvalidFieldsException;
-import br.com.airton.model.Usuario;
 import br.com.airton.response.MessageResponse;
 import br.com.airton.service.UsuarioService;
 

@@ -20,7 +20,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {
         Usuario usuario = (Usuario) usuariopRepository.findByEmail(email);
 
         if(usuario==null){
-            throw new UsernameNotFoundException("Usuário não Encontrado!");
+            return null;
         }
 
         return new UserSS(usuario.getEmail(), usuario.getPassword());

@@ -1,10 +1,9 @@
 package br.com.airton.service;
 
-import java.util.Date;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import br.com.airton.Util.DesafioUtil;
 import br.com.airton.model.Usuario;
 import br.com.airton.repository.UsuarioRepository;
 import br.com.airton.response.TokenResponse;
@@ -21,7 +20,7 @@ public class UsuarioService {
 
 	public Usuario updateUserLastLogin(String email) {
 		Usuario usuario = usuarioRepository.findByEmail(email);	
-		usuario.setLast_login((new Date()));
+		usuario.setLast_login(DesafioUtil.getActualDateTimeBrazilTimeZone());
 	    usuarioRepository.save(usuario);
 		return usuario;
 	}
