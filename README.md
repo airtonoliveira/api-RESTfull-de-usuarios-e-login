@@ -2,11 +2,12 @@
 H2/Maven/Hibernate/Spring/Heroku/Java 8/JWT/JUnit
 
 Aplicação RESTful de cadastro de usuários para login e geração de tokens.
-- Tokens expiram em 24 horas.
 - Senhas criptografadas
+- Testes Unitários
 
-# API online: 
+## API online (Heroku): 
 https://airton-restfull-jwt.herokuapp.com/
+###Tokens expiram em 24 horas.
 
 ## Rotas:
 https://documenter.getpostman.com/view/3256997/S1M3uk9U

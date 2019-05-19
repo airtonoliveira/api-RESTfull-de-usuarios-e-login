@@ -15,8 +15,16 @@ public class UsuarioLoginInfoResponse implements IResponse{
         this.email = usuario.getEmail();
         this.phones = usuario.getPhones();
         this.setCreated_at(usuario.getCreated_at().format(DateTimeFormatter.ofPattern(DesafioUtil.FORMATO_DD_MM_YYYY)));
-        this.setLast_login(usuario.getLast_login().format(DateTimeFormatter.ofPattern(DesafioUtil.FORMATO_DD_MM_YYYY)));
+        this.setLast_login(getLastLoginDateFormatedOrNull(usuario));
     }
+
+	private String getLastLoginDateFormatedOrNull(Usuario usuario) {
+		if(usuario.getLast_login()!=null) {
+			return usuario.getLast_login().format(DateTimeFormatter.ofPattern(DesafioUtil.FORMATO_DD_MM_YYYY));
+		}else {
+			return "";
+		}
+	}
 
 
     private String firstName;
