@@ -29,7 +29,7 @@ public class JWTUtil {
 		
 	private String secret = "P1T4NG";
 
-	private Long expiration = 300000L;
+	private Long expiration = 86400000L;
 	
 	public String generateToken(String username) {
 		return Jwts.builder()
@@ -51,7 +51,7 @@ public class JWTUtil {
 		}
 		return false;
 	}
-
+	
 	public String getUsername(String token) {
 		Claims claims = getClaims(token);
 		if (claims != null) {
