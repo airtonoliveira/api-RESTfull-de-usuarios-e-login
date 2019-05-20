@@ -6,8 +6,9 @@ Aplicação RESTful de cadastro de usuários para login e geração de tokens.
 - Testes Unitários
 
 ## API online (Heroku): 
-https://airton-restfull-jwt.herokuapp.com/
-###Tokens expiram em 24 horas.
+https://airton-restfull-jwt.herokuapp.com/ 
+
+Tokens expiram em 24 horas.
 
 ## Rotas:
 https://documenter.getpostman.com/view/3256997/S1M3uk9U

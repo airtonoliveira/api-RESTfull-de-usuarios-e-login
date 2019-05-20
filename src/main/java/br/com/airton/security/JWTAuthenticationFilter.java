@@ -19,6 +19,7 @@ import org.springframework.security.web.authentication.AuthenticationFailureHand
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.exc.MismatchedInputException;
 import com.fasterxml.jackson.databind.exc.UnrecognizedPropertyException;
 
 import br.com.airton.Util.DesafioUtil;
@@ -68,7 +69,7 @@ public class JWTAuthenticationFilter extends UsernamePasswordAuthenticationFilte
 				} catch (IOException e1) {
 					throw new RuntimeException(e1.getMessage());
 				}		        
-			}else if(e instanceof InvalidFieldsException) {
+			}else if(e instanceof InvalidFieldsException || e instanceof MismatchedInputException) {
 				res.setStatus(HttpStatus.BAD_REQUEST.value());
 		         res.setContentType("application/json"); 
 		         try {
